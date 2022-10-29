@@ -2,13 +2,13 @@
   <div class="buttons-header"><h4>Choose a toast!</h4></div>
   <div class="wrapper">
     <button type="button" (click)="success()" class="btn btn-success">
-      {{ BUTTON.SUCCESS | uppercase }}
+      {{ successData.buttonText | titlecase }}
     </button>
     <button type="button" (click)="warning()" class="btn btn-warning">
-      {{ BUTTON.WARNING | uppercase }}
+      {{ warningData.buttonText | titlecase }}
     </button>
     <button type="button" (click)="error()" class="btn btn-danger">
-      {{ BUTTON.ERROR | uppercase }}
+      {{ errorData.buttonText | titlecase }}
     </button>
   </div>
 </div>

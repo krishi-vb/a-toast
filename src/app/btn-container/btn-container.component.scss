@@ -8,10 +8,14 @@
 
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .buttons-header {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+button {
+  width: 180px;
 }

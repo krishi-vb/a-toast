@@ -2,7 +2,10 @@ import { Component } from '@angular/core';
 import { ButtonData } from './btn-container/btn-container.component';
 
 export interface LogData
-  extends Omit<ButtonData, 'bodyCopy' | 'header' | 'backgroundColor'> {
+  extends Omit<
+    ButtonData,
+    'bodyCopy' | 'header' | 'headerColor' | 'bodyColor' | 'buttonText'
+  > {
   time?: string;
 }
 

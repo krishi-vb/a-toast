@@ -8,9 +8,11 @@ export enum BUTTON {
 
 export interface ButtonData {
   type: BUTTON;
+  buttonText: string;
   bodyCopy: string;
   header: string;
-  backgroundColor: string;
+  headerColor: string;
+  bodyColor: string;
 }
 
 @Component({
@@ -26,23 +28,29 @@ export class BtnContainerComponent implements OnInit {
 
   successData: ButtonData = {
     type: BUTTON.SUCCESS,
+    buttonText: 'Show Success',
     bodyCopy: 'This is a success toast',
     header: 'Success!',
-    backgroundColor: '#d4edda',
+    headerColor: '#d4edda',
+    bodyColor: '#198754',
   };
 
   errorData: ButtonData = {
     type: BUTTON.ERROR,
+    buttonText: 'Show Error',
     bodyCopy: 'This is an error toast',
     header: 'Error!',
-    backgroundColor: '#f8d7da',
+    headerColor: '#f8d7da',
+    bodyColor: '#dc3545',
   };
 
   warningData: ButtonData = {
     type: BUTTON.WARNING,
+    buttonText: 'Show Warning',
     bodyCopy: 'This is a warning toast',
     header: 'Warning!',
-    backgroundColor: '#fff3cd',
+    headerColor: '#fff3cd',
+    bodyColor: '#ffc107',
   };
 
   @Output()
