@@ -16,11 +16,14 @@ export class AppComponent {
   toastEnabled: boolean = false;
   clickLogs: LogData[] = [];
   buttonThatWasClicked: string = '';
+  toastData!: ButtonData;
 
-  click(data: ButtonData) {
+  onBtnClick(data: ButtonData) {
     let log: LogData = { type: data.type };
     log.time = new Date().toLocaleTimeString();
     this.clickLogs.push(log);
+    this.toastData = data;
+    this.toastEnabled = true;
     console.log('click was registered');
   }
 }

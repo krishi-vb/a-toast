@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ButtonData } from '../btn-container/btn-container.component';
 
 @Component({
   selector: 'app-toast',
@@ -8,6 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ToastComponent implements OnInit {
   @Input()
   toastEnabled: boolean = false;
+
+  @Input()
+  toastData!: ButtonData;
 
   constructor() {}
 
