@@ -1,1 +1,17 @@
-<div *ngIf="toastEnabled">{{ toastData | json }}</div>
+<div *ngIf="toastEnabled">
+  <!-- <div
+    class="toast-container"
+    [style.background-color]="toastData.backgroundColor"
+  >
+    <div class="toast-header">{{ toastData.header }}</div>
+    <div class="toast-body">{{ toastData.bodyCopy }}</div>
+  </div> -->
+
+  <div class="toast-container" [style.background]="toastData.backgroundColor">
+    <div>
+      <div class="toast-header">{{ toastData.header }}</div>
+      <div class="toast-body">{{ toastData.bodyCopy }}</div>
+    </div>
+    <div class="close-btn">X</div>
+  </div>
+</div>
