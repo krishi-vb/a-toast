@@ -1,7 +1,7 @@
 <div class="container">
-  <button>Success</button>
+  <button (click)="success()">{{ BUTTON.SUCCESS | uppercase }}</button>
 
-  <button>Error</button>
+  <button (click)="error()">{{ BUTTON.ERROR | uppercase }}</button>
 
-  <button>Warning</button>
+  <button (click)="warning()">{{ BUTTON.WARNING | uppercase }}</button>
 </div>

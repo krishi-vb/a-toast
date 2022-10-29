@@ -1,5 +1,11 @@
 <div>{{ title }}</div>
 
-<app-btn-container></app-btn-container>
+<app-btn-container
+  (successClicked)="click($event)"
+  (errorClicked)="click($event)"
+  (warningClicked)="click($event)"
+></app-btn-container>
 
-<app-toast></app-toast>
+<app-logger [logs]="clickLogs"></app-logger>
+
+<app-toast [toastEnabled]="toastEnabled"></app-toast>
