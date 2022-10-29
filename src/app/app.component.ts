@@ -12,7 +12,7 @@ export interface LogData
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'a-toast';
+  title = 'A Toast';
   toastEnabled: boolean = false;
   clickLogs: LogData[] = [];
   notifications: ButtonData[] = [];
@@ -27,5 +27,6 @@ export class AppComponent {
     this.toastData = data;
     this.toastEnabled = true;
     console.log('click was registered');
+    console.log(this.notifications);
   }
 }

@@ -1,7 +1,14 @@
 <div class="container">
-  <button (click)="success()">{{ BUTTON.SUCCESS | uppercase }}</button>
-
-  <button (click)="error()">{{ BUTTON.ERROR | uppercase }}</button>
-
-  <button (click)="warning()">{{ BUTTON.WARNING | uppercase }}</button>
+  <div class="buttons-header"><h4>Choose a toast!</h4></div>
+  <div class="wrapper">
+    <button type="button" (click)="success()" class="btn btn-success">
+      {{ BUTTON.SUCCESS | uppercase }}
+    </button>
+    <button type="button" (click)="warning()" class="btn btn-warning">
+      {{ BUTTON.WARNING | uppercase }}
+    </button>
+    <button type="button" (click)="error()" class="btn btn-danger">
+      {{ BUTTON.ERROR | uppercase }}
+    </button>
+  </div>
 </div>
