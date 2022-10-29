@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ButtonData } from '../btn-container/btn-container.component';
+import { Component, ComponentRef, Input, OnInit } from '@angular/core';
+import { BUTTON, ButtonData } from '../btn-container/btn-container.component';
 
 @Component({
   selector: 'app-toast',
@@ -12,6 +12,8 @@ export class ToastComponent implements OnInit {
 
   @Input()
   toastData!: ButtonData;
+
+  BUTTON = BUTTON;
 
   constructor() {}
 
