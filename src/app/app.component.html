@@ -8,4 +8,6 @@
 
 <app-logger [logs]="clickLogs"></app-logger>
 
-<app-toast [toastEnabled]="toastEnabled" [toastData]="toastData"></app-toast>
+<div *ngFor="let item of notifications">
+  <app-toast [toastEnabled]="toastEnabled" [toastData]="item"></app-toast>
+</div>

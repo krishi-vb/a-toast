@@ -15,10 +15,12 @@ export class AppComponent {
   title = 'a-toast';
   toastEnabled: boolean = false;
   clickLogs: LogData[] = [];
+  notifications: ButtonData[] = [];
   buttonThatWasClicked: string = '';
   toastData!: ButtonData;
 
   onBtnClick(data: ButtonData) {
+    this.notifications.push(data);
     let log: LogData = { type: data.type };
     log.time = new Date().toLocaleTimeString();
     this.clickLogs.push(log);

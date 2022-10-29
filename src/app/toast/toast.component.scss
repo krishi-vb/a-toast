@@ -3,21 +3,16 @@
   bottom: 0px;
   right: 0px;
 
+  width: 12rem;
   max-width: 25rem;
+
   margin: 0.5rem;
   padding: 1rem;
 
   display: flex;
+  justify-content: space-between;
 
   .toast-header {
     margin-bottom: 0.5rem;
-  }
-
-  .is-success {
-    background-color: #d4edda;
-  }
-
-  .close-btn {
-    justify-items: center;
   }
 }
