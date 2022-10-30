@@ -3,11 +3,7 @@
     <h6>
       <b>{{ toastData.header }}</b>
     </h6>
-    <button
-      type="button"
-      class="btn-close close-button"
-      (click)="click()"
-    ></button>
+    <button type="button" class="btn-close close-button"></button>
   </div>
   <div class="toast-body" [style.background]="toastData.bodyColor">
     <h6 [style.color]="toastData.type === BUTTON.WARNING ? 'black' : ''">

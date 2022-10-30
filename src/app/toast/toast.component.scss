@@ -6,6 +6,8 @@
   position: relative;
   bottom: 10px;
   right: 10px;
+  z-index: 3;
+  pointer-events: all;
 
   width: 15rem;
   max-width: 25rem;

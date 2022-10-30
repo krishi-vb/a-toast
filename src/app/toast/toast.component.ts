@@ -19,19 +19,16 @@ export class ToastComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onClickSuccess() {
-    console.log('success');
-  }
+  // constructor(private compRef: ComponentRef<ToastComponent>) {}
 
-  onClickError() {
-    console.log('error');
-  }
+  // ngOnInit(): void {
+  //   setTimeout(() => {
+  //     this.destroy();
+  //   }, 5000);
+  // }
 
-  onClickWarning() {
-    console.log('warn');
-  }
-
-  click() {
-    console.log('clicked');
-  }
+  // destroy() {
+  //   console.log(this.compRef);
+  //   this.compRef.destroy();
+  // }
 }

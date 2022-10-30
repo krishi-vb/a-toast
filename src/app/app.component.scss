@@ -6,6 +6,7 @@ app-toast {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;
+  z-index: 2;
 
   position: fixed;
   bottom: 10px;
