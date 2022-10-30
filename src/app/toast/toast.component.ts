@@ -16,12 +16,17 @@ export class ToastComponent implements OnInit {
   @Output()
   closeToast = new EventEmitter<number>();
 
+  /**
+   * Time in milli seconds
+   */
+  MAX_TIMEOUT_FOR_TOAST = 5000;
+
   EVENT = Event;
 
   ngOnInit(): void {
     setTimeout(() => {
       this.close();
-    }, 5000);
+    }, this.MAX_TIMEOUT_FOR_TOAST);
   }
 
   close() {

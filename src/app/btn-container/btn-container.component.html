@@ -2,13 +2,23 @@
   <div class="buttons-header"><h4>Choose your toasts!</h4></div>
   <div class="wrapper">
     <button type="button" (click)="success()" class="btn btn-success">
-      {{ successData.buttonText | titlecase }}
+      <img src="../../assets/icons/check2.svg" alt="" />{{
+        successData.buttonText | titlecase
+      }}
     </button>
     <button type="button" (click)="warning()" class="btn btn-warning">
-      {{ warningData.buttonText | titlecase }}
+      <img
+        src="../../assets/icons/exclamation-triangle.svg"
+        alt=""
+        style="margin-right: 4px"
+      />{{ warningData.buttonText | titlecase }}
     </button>
     <button type="button" (click)="error()" class="btn btn-danger">
-      {{ errorData.buttonText | titlecase }}
+      <img
+        src="../../assets/icons/x-circle.svg"
+        alt=""
+        style="margin-right: 4px"
+      />{{ errorData.buttonText | titlecase }}
     </button>
   </div>
 </div>

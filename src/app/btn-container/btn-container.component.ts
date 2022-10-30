@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastService } from '../toast/toast.service';
 import { ToastEvent, Event } from '../toast/toast.types';
 
