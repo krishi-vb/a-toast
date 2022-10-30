@@ -19,6 +19,12 @@
 
 <app-logger [logs]="clickLogs"></app-logger>
 
-<div *ngFor="let item of notifications">
-  <app-toast [toastEnabled]="toastEnabled" [toastData]="item"></app-toast>
+<div class="iterator">
+  <div *ngFor="let item of notifications" style="margin-top: 5px">
+    <app-toast [toastEnabled]="toastEnabled" [toastData]="item"></app-toast>
+  </div>
 </div>
+
+<!-- <app-toast [toastEnabled]="toastEnabled" [toastData]="item"></app-toast> -->
+
+<!-- {{ notifications | json }} -->

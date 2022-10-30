@@ -30,4 +30,8 @@ export class ToastComponent implements OnInit {
   onClickWarning() {
     console.log('warn');
   }
+
+  click() {
+    console.log('clicked');
+  }
 }
