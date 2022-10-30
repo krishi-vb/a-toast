@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { ToastService } from './toast/toast.service';
 import { ToastContainerComponent } from './toast-container/toast-container.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ToastContainerComponent } from './toast-container/toast-container.compo
     ToastComponent,
     LoggerComponent,
     ToastContainerComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

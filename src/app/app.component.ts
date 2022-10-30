@@ -15,7 +15,6 @@ export interface LogData
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'A Toast';
   toastEnabled: boolean = false;
   clickLogs: LogData[] = [];
   notifications: ToastEvent[] = [];
