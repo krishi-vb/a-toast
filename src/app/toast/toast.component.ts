@@ -17,7 +17,9 @@ export class ToastComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.toastData);
+  }
 
   // constructor(private compRef: ComponentRef<ToastComponent>) {}
 

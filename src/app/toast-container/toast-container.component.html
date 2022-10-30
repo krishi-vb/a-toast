@@ -1,0 +1,3 @@
+<div *ngFor="let toast of toastStack; index as i" class="container">
+  <app-toast [toastData]="toast" (disposeEvent)="dispose(i)"></app-toast>
+</div>

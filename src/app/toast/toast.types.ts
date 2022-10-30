@@ -5,10 +5,15 @@ export enum Event {
 }
 
 export interface ToastEvent {
-  type: Event;
-  buttonText: string;
-  bodyCopy: string;
-  header: string;
-  headerColor: string;
-  bodyColor: string;
+  type?: Event;
+  buttonText?: string;
+  body?: string;
+  header?: string;
+  headerColor?: string;
+  bodyColor?: string;
+}
+
+export interface ToastEventLog {
+  type?: Event;
+  time?: string;
 }

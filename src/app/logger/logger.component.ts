@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { startWith } from 'rxjs';
+import { ToastService } from '../toast/toast.service';
 
 @Component({
   selector: 'app-logger',
@@ -6,10 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./logger.component.scss'],
 })
 export class LoggerComponent implements OnInit {
-  @Input()
+  // @Input()
   logs: any[] = [];
 
-  constructor() {}
+  toastEvents = this.toastService.toastLogs;
+
+  constructor(private toastService: ToastService) {}
 
   ngOnInit(): void {}
 }

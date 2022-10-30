@@ -2,7 +2,21 @@ app-toast {
   height: 20vh;
 }
 
-.iterator {
+// .iterator {
+//   display: flex;
+//   flex-direction: column-reverse;
+//   align-items: flex-end;
+//   flex-wrap: wrap-reverse;
+//   z-index: 2;
+
+//   position: fixed;
+//   bottom: 10px;
+//   right: 10px;
+
+//   max-height: 60vh;
+// }
+
+app-toast-container {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-end;

@@ -4,7 +4,7 @@ import { ToastEvent } from './toast/toast.types';
 export interface LogData
   extends Omit<
     ToastEvent,
-    'bodyCopy' | 'header' | 'headerColor' | 'bodyColor' | 'buttonText'
+    'body' | 'header' | 'headerColor' | 'bodyColor' | 'buttonText'
   > {
   time?: string;
 }

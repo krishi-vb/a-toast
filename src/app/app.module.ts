@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { ToastService } from './toast/toast.service';
+import { ToastContainerComponent } from './toast-container/toast-container.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ToastService } from './toast/toast.service';
     BtnContainerComponent,
     ToastComponent,
     LoggerComponent,
+    ToastContainerComponent,
   ],
   imports: [
     BrowserModule,

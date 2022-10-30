@@ -11,23 +11,21 @@
   >
 </nav>
 
-<app-btn-container
-  (successClicked)="onBtnClick($event)"
-  (errorClicked)="onBtnClick($event)"
-  (warningClicked)="onBtnClick($event)"
-></app-btn-container>
+<app-btn-container></app-btn-container>
 
-<app-logger [logs]="clickLogs"></app-logger>
+<app-logger></app-logger>
 
-<div class="iterator">
+<!-- <div class="iterator">
   <div
     *ngFor="let item of notifications"
     style="margin-top: 5px; margin-left: 5px"
   >
     <app-toast [toastEnabled]="toastEnabled" [toastData]="item"></app-toast>
   </div>
-</div>
+</div> -->
 
 <!-- <app-toast [toastEnabled]="toastEnabled" [toastData]="item"></app-toast> -->
 
 <!-- {{ notifications | json }} -->
+
+<app-toast-container></app-toast-container>
