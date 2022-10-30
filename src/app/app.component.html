@@ -20,7 +20,10 @@
 <app-logger [logs]="clickLogs"></app-logger>
 
 <div class="iterator">
-  <div *ngFor="let item of notifications" style="margin-top: 5px">
+  <div
+    *ngFor="let item of notifications"
+    style="margin-top: 5px; margin-left: 5px"
+  >
     <app-toast [toastEnabled]="toastEnabled" [toastData]="item"></app-toast>
   </div>
 </div>
