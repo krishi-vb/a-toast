@@ -11,7 +11,6 @@ import { ToastEvent } from '../toast/toast.types';
   selector: 'app-toast-container',
   templateUrl: './toast-container.component.html',
   styleUrls: ['./toast-container.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastContainerComponent implements OnInit {
   toastStack: ToastEvent[] = [];
@@ -26,15 +25,19 @@ export class ToastContainerComponent implements OnInit {
   }
 
   subscribeToToasts() {
+    let eventIndex = -1;
     this.toastService.toastEvents$.subscribe((toast) => {
+      eventIndex++;
+      console.log('count is', eventIndex);
       const currentToast: ToastEvent = toast;
       this.toastStack.push(currentToast);
       this.changeDetRef.detectChanges();
     });
   }
 
-  dispose(index: number) {
+  disposeToast(index: number) {
     this.toastStack.splice(index, 1);
     this.changeDetRef.detectChanges();
+    console.log('disposed toast with index', index);
   }
 }

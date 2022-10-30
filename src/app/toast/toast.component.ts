@@ -1,4 +1,11 @@
-import { Component, ComponentRef, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ComponentRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ToastEvent, Event } from './toast.types';
 
 @Component({
@@ -13,12 +20,21 @@ export class ToastComponent implements OnInit {
   @Input()
   toastData!: ToastEvent;
 
+  @Output()
+  closeToast = new EventEmitter();
+
   EVENT = Event;
 
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.toastData);
+    setTimeout(() => {
+      this.close();
+    }, 5000);
+  }
+
+  close() {
+    this.closeToast.emit();
   }
 
   // constructor(private compRef: ComponentRef<ToastComponent>) {}
