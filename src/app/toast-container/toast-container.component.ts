@@ -16,7 +16,7 @@ export class ToastContainerComponent implements OnInit {
     this.subscribeToToasts();
   }
 
-  subscribeToToasts() {
+  private subscribeToToasts() {
     let eventIndex = -1;
     this.toastService.toastEvents$.subscribe((toast) => {
       eventIndex++;

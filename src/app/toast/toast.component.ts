@@ -8,9 +8,6 @@ import { Event, ToastEventsWithIndex } from './toast.types';
 })
 export class ToastComponent implements OnInit {
   @Input()
-  toastEnabled: boolean = false;
-
-  @Input()
   toastData!: ToastEventsWithIndex;
 
   @Output()
