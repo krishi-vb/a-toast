@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ButtonData } from './btn-container/btn-container.component';
+import { ToastEvent } from './toast/toast.types';
 
 export interface LogData
   extends Omit<
-    ButtonData,
+    ToastEvent,
     'bodyCopy' | 'header' | 'headerColor' | 'bodyColor' | 'buttonText'
   > {
   time?: string;
@@ -18,11 +18,11 @@ export class AppComponent {
   title = 'A Toast';
   toastEnabled: boolean = false;
   clickLogs: LogData[] = [];
-  notifications: ButtonData[] = [];
+  notifications: ToastEvent[] = [];
   buttonThatWasClicked: string = '';
-  toastData!: ButtonData;
+  toastData!: ToastEvent;
 
-  onBtnClick(data: ButtonData) {
+  onBtnClick(data: ToastEvent) {
     this.notifications.push(data);
     let log: LogData = { type: data.type };
     log.time = new Date().toLocaleTimeString();

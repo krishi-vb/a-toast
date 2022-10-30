@@ -1,19 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
-export enum BUTTON {
-  SUCCESS = 'success',
-  ERROR = 'error',
-  WARNING = 'warning',
-}
-
-export interface ButtonData {
-  type: BUTTON;
-  buttonText: string;
-  bodyCopy: string;
-  header: string;
-  headerColor: string;
-  bodyColor: string;
-}
+import { ToastEvent, Event } from '../toast/toast.types';
 
 @Component({
   selector: 'app-btn-container',
@@ -24,10 +10,10 @@ export class BtnContainerComponent implements OnInit {
   @Output()
   toastEnabled: boolean = false;
 
-  BUTTON = BUTTON;
+  EVENT = Event;
 
-  successData: ButtonData = {
-    type: BUTTON.SUCCESS,
+  successData: ToastEvent = {
+    type: Event.SUCCESS,
     buttonText: 'Show Success',
     bodyCopy: 'This is a success toast',
     header: 'Success!',
@@ -35,8 +21,8 @@ export class BtnContainerComponent implements OnInit {
     bodyColor: '#198754',
   };
 
-  errorData: ButtonData = {
-    type: BUTTON.ERROR,
+  errorData: ToastEvent = {
+    type: Event.ERROR,
     buttonText: 'Show Error',
     bodyCopy: 'This is an error toast',
     header: 'Error!',
@@ -44,8 +30,8 @@ export class BtnContainerComponent implements OnInit {
     bodyColor: '#dc3545',
   };
 
-  warningData: ButtonData = {
-    type: BUTTON.WARNING,
+  warningData: ToastEvent = {
+    type: Event.WARNING,
     buttonText: 'Show Warning',
     bodyCopy: 'This is a warning toast',
     header: 'Warning!',
@@ -54,13 +40,13 @@ export class BtnContainerComponent implements OnInit {
   };
 
   @Output()
-  successClicked = new EventEmitter<ButtonData>();
+  successClicked = new EventEmitter<ToastEvent>();
 
   @Output()
-  errorClicked = new EventEmitter<ButtonData>();
+  errorClicked = new EventEmitter<ToastEvent>();
 
   @Output()
-  warningClicked = new EventEmitter<ButtonData>();
+  warningClicked = new EventEmitter<ToastEvent>();
 
   constructor() {}
 
