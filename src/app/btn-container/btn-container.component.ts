@@ -7,10 +7,7 @@ import { ToastEvent, Event } from '../toast/toast.types';
   templateUrl: './btn-container.component.html',
   styleUrls: ['./btn-container.component.scss'],
 })
-export class BtnContainerComponent implements OnInit {
-  @Output()
-  toastEnabled: boolean = false;
-
+export class BtnContainerComponent {
   EVENT = Event;
 
   successData: ToastEvent = {
@@ -40,31 +37,17 @@ export class BtnContainerComponent implements OnInit {
     bodyColor: '#ffc107',
   };
 
-  // @Output()
-  // successClicked = new EventEmitter<ToastEvent>();
-
-  // @Output()
-  // errorClicked = new EventEmitter<ToastEvent>();
-
-  // @Output()
-  // warningClicked = new EventEmitter<ToastEvent>();
-
   constructor(private toastService: ToastService) {}
 
-  ngOnInit(): void {}
-
   success() {
-    // this.successClicked.emit(this.successData);
     this.toastService.showSuccess(this.successData);
   }
 
   error() {
-    // this.errorClicked.emit(this.errorData);
     this.toastService.showError(this.errorData);
   }
 
   warning() {
-    // this.warningClicked.emit(this.warningData);
     this.toastService.showWarning(this.warningData);
   }
 }

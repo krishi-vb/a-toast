@@ -1,7 +1,9 @@
 <div class="container">
-  <div class="logger-heading">Your Toasty demands will be logged below -</div>
+  <div class="logger-heading">
+    <h6>Your demands for toasts will be logged below -</h6>
+  </div>
   <div *ngIf="toastEvents.length < 1; else renderLogs" class="logger-body">
-    No toasts have been served yet.
+    No toasts served so far.
   </div>
 
   <ng-template #renderLogs>
