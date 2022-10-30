@@ -1,6 +1,4 @@
 .container {
-  // display: flex;
-  // justify-content: space-around;
   z-index: 1;
 
   margin-top: 3rem;
@@ -18,4 +16,9 @@
 
 button {
   width: 180px;
+  transition: ease-in-out 0.2s;
+}
+
+button:hover {
+  transform: translateY(-5px);
 }

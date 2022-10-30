@@ -8,6 +8,7 @@ import { LoggerComponent } from './logger/logger.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ToastService } from './toast/toast.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     FormsModule,
     ButtonsModule,
   ],
-  providers: [],
+  providers: [ToastService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
