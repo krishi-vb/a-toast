@@ -1,7 +1,7 @@
 <div class="toast-container">
-  <div class="toast-header" [style.background]="toastData.headerColor">
+  <div class="toast-header" [style.background]="toastData.event.headerColor">
     <h6>
-      <b>{{ toastData.header }}</b>
+      <b>{{ toastData.event.header }}</b>
     </h6>
     <button
       type="button"
@@ -9,9 +9,9 @@
       (click)="close()"
     ></button>
   </div>
-  <div class="toast-body" [style.background]="toastData.bodyColor">
-    <h6 [style.color]="toastData.type === EVENT.WARNING ? 'black' : ''">
-      {{ toastData.body }}
+  <div class="toast-body" [style.background]="toastData.event.bodyColor">
+    <h6 [style.color]="toastData.event.type === EVENT.WARNING ? 'black' : ''">
+      {{ toastData.event.body }}
     </h6>
   </div>
 </div>

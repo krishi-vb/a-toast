@@ -3,17 +3,10 @@
   <div *ngIf="toastEvents.length < 1; else renderLogs">
     No buttons have been clicked
   </div>
-  <!-- <ng-template #renderLogs>
-    <div class="logger-body" *ngIf="toastEvent$ | async as logs">
-      <div *ngFor="let log of logs">
-        {{ log.type | titlecase }} button was clicked at {{ log.time }}
-      </div>
-    </div>
-  </ng-template> -->
 
   <ng-template #renderLogs>
     <div *ngFor="let event of toastEvents">
-      {{ event.type | titlecase }} button was clicked at {{ event.time }}
+      {{ event.type | titlecase }} toast was rendered at {{ event.time }}
     </div>
   </ng-template>
 </div>

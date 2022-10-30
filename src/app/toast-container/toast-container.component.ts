@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { ToastService } from '../toast/toast.service';
-import { ToastEvent } from '../toast/toast.types';
+import { ToastEvent, ToastEventsWithIndex } from '../toast/toast.types';
 
 @Component({
   selector: 'app-toast-container',
@@ -13,7 +13,7 @@ import { ToastEvent } from '../toast/toast.types';
   styleUrls: ['./toast-container.component.scss'],
 })
 export class ToastContainerComponent implements OnInit {
-  toastStack: ToastEvent[] = [];
+  toastStack: ToastEventsWithIndex[] = [];
 
   constructor(
     private toastService: ToastService,
@@ -30,13 +30,17 @@ export class ToastContainerComponent implements OnInit {
       eventIndex++;
       console.log('count is', eventIndex);
       const currentToast: ToastEvent = toast;
-      this.toastStack.push(currentToast);
+      this.toastStack.push({ event: currentToast, index: eventIndex });
       this.changeDetRef.detectChanges();
     });
   }
 
   disposeToast(index: number) {
-    this.toastStack.splice(index, 1);
+    // this.toastStack.splice(index, 1);
+    // this.changeDetRef.detectChanges();
+    // console.log('disposed toast with index', index);
+    this.toastStack = this.toastStack.filter((toast) => toast.index != index);
+    console.log(this.toastStack);
     this.changeDetRef.detectChanges();
     console.log('disposed toast with index', index);
   }

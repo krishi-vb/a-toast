@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { ToastEvent, Event } from './toast.types';
+import { ToastEvent, Event, ToastEventsWithIndex } from './toast.types';
 
 @Component({
   selector: 'app-toast',
@@ -18,10 +18,10 @@ export class ToastComponent implements OnInit {
   toastEnabled: boolean = false;
 
   @Input()
-  toastData!: ToastEvent;
+  toastData!: ToastEventsWithIndex;
 
   @Output()
-  closeToast = new EventEmitter();
+  closeToast = new EventEmitter<number>();
 
   EVENT = Event;
 
@@ -34,19 +34,6 @@ export class ToastComponent implements OnInit {
   }
 
   close() {
-    this.closeToast.emit();
+    this.closeToast.emit(this.toastData.index);
   }
-
-  // constructor(private compRef: ComponentRef<ToastComponent>) {}
-
-  // ngOnInit(): void {
-  //   setTimeout(() => {
-  //     this.destroy();
-  //   }, 5000);
-  // }
-
-  // destroy() {
-  //   console.log(this.compRef);
-  //   this.compRef.destroy();
-  // }
 }

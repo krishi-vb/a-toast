@@ -18,6 +18,7 @@ export interface ToastEventLog {
   time?: string;
 }
 
-export interface ToastEventsWithIndex extends ToastEvent {
+export interface ToastEventsWithIndex {
+  event: ToastEvent;
   index: number;
 }
