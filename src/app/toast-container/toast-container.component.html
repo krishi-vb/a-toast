@@ -1,4 +1,4 @@
-<div *ngFor="let toast of toastStack; let i = index" class="container">
+<div *ngFor="let toast of toastStack" class="container">
   <app-toast
     [toastData]="toast"
     (closeToast)="disposeToast($event)"

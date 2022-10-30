@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToastService } from '../toast/toast.service';
 import { ToastEvent, ToastEventsWithIndex } from '../toast/toast.types';
 
@@ -15,10 +10,7 @@ import { ToastEvent, ToastEventsWithIndex } from '../toast/toast.types';
 export class ToastContainerComponent implements OnInit {
   toastStack: ToastEventsWithIndex[] = [];
 
-  constructor(
-    private toastService: ToastService,
-    private changeDetRef: ChangeDetectorRef
-  ) {}
+  constructor(private toastService: ToastService) {}
 
   ngOnInit(): void {
     this.subscribeToToasts();
@@ -28,20 +20,12 @@ export class ToastContainerComponent implements OnInit {
     let eventIndex = -1;
     this.toastService.toastEvents$.subscribe((toast) => {
       eventIndex++;
-      console.log('count is', eventIndex);
       const currentToast: ToastEvent = toast;
       this.toastStack.push({ event: currentToast, index: eventIndex });
-      this.changeDetRef.detectChanges();
     });
   }
 
   disposeToast(index: number) {
-    // this.toastStack.splice(index, 1);
-    // this.changeDetRef.detectChanges();
-    // console.log('disposed toast with index', index);
     this.toastStack = this.toastStack.filter((toast) => toast.index != index);
-    console.log(this.toastStack);
-    this.changeDetRef.detectChanges();
-    console.log('disposed toast with index', index);
   }
 }
