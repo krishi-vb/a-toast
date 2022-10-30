@@ -27,6 +27,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserAnimationsModule,
     FormsModule,
     ButtonsModule,
+    BrowserAnimationsModule,
   ],
   providers: [ToastService],
   bootstrap: [AppComponent],
