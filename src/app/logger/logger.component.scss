@@ -1,14 +1,13 @@
 .container {
   display: inline-block;
   margin: 2rem;
-  max-width: 20rem;
+  max-width: 25rem;
 }
 
 .logger-heading {
   margin-bottom: 1rem;
 }
 
-// .logger-body {
-//   max-height: 70vh;
-//   overflow-y: scroll;
-// }
+.logger-body {
+  margin-left: 10px;
+}

@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="logger-heading">Click Logs -</div>
-  <div *ngIf="toastEvents.length < 1; else renderLogs">
-    No buttons have been clicked
+  <div class="logger-heading">Your Toasty demands will be logged below -</div>
+  <div *ngIf="toastEvents.length < 1; else renderLogs" class="logger-body">
+    No toasts have been served yet.
   </div>
 
   <ng-template #renderLogs>
-    <div *ngFor="let event of toastEvents">
-      {{ event.type | titlecase }} toast was rendered at {{ event.time }}
+    <div *ngFor="let event of toastEvents" class="logger-body">
+      A {{ event.type }} toast was served at {{ event.time }}
     </div>
   </ng-template>
 </div>

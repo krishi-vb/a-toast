@@ -1,19 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { startWith } from 'rxjs';
+import { Component } from '@angular/core';
 import { ToastService } from '../toast/toast.service';
+import { ToastEventLog } from '../toast/toast.types';
 
 @Component({
   selector: 'app-logger',
   templateUrl: './logger.component.html',
   styleUrls: ['./logger.component.scss'],
 })
-export class LoggerComponent implements OnInit {
-  // @Input()
-  logs: any[] = [];
-
-  toastEvents = this.toastService.toastLogs;
+export class LoggerComponent {
+  toastEvents: ToastEventLog[] = this.toastService.toastLogs;
 
   constructor(private toastService: ToastService) {}
-
-  ngOnInit(): void {}
 }
