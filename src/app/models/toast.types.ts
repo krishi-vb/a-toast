@@ -15,7 +15,7 @@ export interface ToastEvent {
 export interface ToastMessage {
   body?: string;
   header?: string;
-  type: Event;
+  type?: Event;
 }
 
 export interface DefaultToastConfig {
