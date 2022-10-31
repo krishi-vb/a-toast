@@ -2,13 +2,14 @@
   <div class="logger-heading">
     <h6>Your demands for toasts will be logged below -</h6>
   </div>
-  <div *ngIf="toastEvents.length < 1; else renderLogs" class="logger-body">
-    No toasts served so far.
-  </div>
 
-  <ng-template #renderLogs>
-    <div *ngFor="let event of toastEvents" class="logger-body">
-      A {{ event.type }} toast was served at {{ event.time }}
-    </div>
-  </ng-template>
+  <div *ngIf="toastLogs$ | async as logs" class="logger-body">
+    <div *ngIf="logs.length < 1; else renderLogs">No toasts served so far.</div>
+
+    <ng-template #renderLogs>
+      <div *ngFor="let log of logs">
+        A {{ log.type }} toast was served at {{ log.time }}
+      </div>
+    </ng-template>
+  </div>
 </div>

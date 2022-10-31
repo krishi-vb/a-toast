@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ToastService } from '../../services/toast.service';
 import { ToastEvent, ToastEventsWithIndex } from '../../models/toast.types';
 
@@ -6,6 +6,7 @@ import { ToastEvent, ToastEventsWithIndex } from '../../models/toast.types';
   selector: 'app-toast-container',
   templateUrl: './toast-container.component.html',
   styleUrls: ['./toast-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastContainerComponent implements OnInit {
   toastStack: ToastEventsWithIndex[] = [];

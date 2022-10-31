@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import {
   DefaultToastConfig,
   Event,
@@ -28,13 +28,14 @@ export class ToastService {
   };
 
   toastEvents$: Observable<ToastEvent>;
-
-  toastLogs: ToastEventLog[] = [];
+  toastLogs$: Observable<ToastEventLog[]>;
 
   private _toastEvents = new Subject<ToastEvent>();
+  private _toastLogs$ = new BehaviorSubject<ToastEventLog[]>([]);
 
   constructor() {
     this.toastEvents$ = this._toastEvents.asObservable();
+    this.toastLogs$ = this._toastLogs$.asObservable();
   }
 
   showSuccess(header: string, body: string) {
@@ -42,7 +43,10 @@ export class ToastService {
       { header, body, type: Event.SUCCESS },
       { ...this.DEFAULT_CONFIG_SUCCESS }
     );
-    this.toastLogs.push({ type: Event.SUCCESS, time: this.getTime() });
+    // this.toastLogs.push({ type: Event.SUCCESS, time: this.getTime() });
+
+    const log: ToastEventLog = { type: Event.SUCCESS, time: this.getTime() };
+    this._toastLogs$.next([...this._toastLogs$.getValue().concat([log])]);
   }
 
   showWarning(header: string, body: string) {
@@ -50,7 +54,10 @@ export class ToastService {
       { header, body, type: Event.WARNING },
       { ...this.DEFAULT_CONFIG_WARNING }
     );
-    this.toastLogs.push({ type: Event.WARNING, time: this.getTime() });
+    // this.toastLogs.push({ type: Event.WARNING, time: this.getTime() });
+
+    const log = { type: Event.WARNING, time: this.getTime() };
+    this._toastLogs$.next([...this._toastLogs$.getValue().concat([log])]);
   }
 
   showError(header: string, body: string) {
@@ -58,7 +65,10 @@ export class ToastService {
       { header, body, type: Event.ERROR },
       { ...this.DEFAULT_CONFIG_ERROR }
     );
-    this.toastLogs.push({ type: Event.ERROR, time: this.getTime() });
+    // this.toastLogs.push({ type: Event.ERROR, time: this.getTime() });
+
+    const log = { type: Event.ERROR, time: this.getTime() };
+    this._toastLogs$.next([...this._toastLogs$.getValue().concat([log])]);
   }
 
   private _show(message: ToastMessage, defaultConfig: DefaultToastConfig) {
