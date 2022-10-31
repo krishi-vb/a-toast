@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ToastEvent } from './toast/toast.types';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ToastService } from '../toast/toast.service';
-import { ToastEvent, Event } from '../toast/toast.types';
+import { ToastService } from '../../services/toast.service';
+import { ToastEvent, Event } from '../../models/toast.types';
 
 @Component({
   selector: 'app-btn-container',

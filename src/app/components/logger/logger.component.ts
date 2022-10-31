@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ToastService } from '../toast/toast.service';
-import { ToastEventLog } from '../toast/toast.types';
+import { ToastService } from '../../services/toast.service';
+import { ToastEventLog } from '../../models/toast.types';
 
 @Component({
   selector: 'app-logger',

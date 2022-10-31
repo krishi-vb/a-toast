@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastService } from '../toast/toast.service';
-import { ToastEvent, ToastEventsWithIndex } from '../toast/toast.types';
+import { ToastService } from '../../services/toast.service';
+import { ToastEvent, ToastEventsWithIndex } from '../../models/toast.types';
 
 @Component({
   selector: 'app-toast-container',
