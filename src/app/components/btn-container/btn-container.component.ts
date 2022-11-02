@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ToastService } from '../../services/toast.service';
 import { ToastEvent, Event } from '../../models/toast.types';
 
@@ -6,6 +6,7 @@ import { ToastEvent, Event } from '../../models/toast.types';
   selector: 'app-btn-container',
   templateUrl: './btn-container.component.html',
   styleUrls: ['./btn-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnContainerComponent {
   EVENT = Event;
