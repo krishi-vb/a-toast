@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ToastService } from '../../services/toast.service';
-import { ToastEventLog } from '../../models/toast.types';
-import { startWith } from 'rxjs';
 
 @Component({
   selector: 'app-logger',
@@ -13,4 +11,8 @@ export class LoggerComponent {
   toastLogs$ = this.toastService.toastLogs$;
 
   constructor(private toastService: ToastService) {}
+
+  trackByIndex(index: number) {
+    return index;
+  }
 }

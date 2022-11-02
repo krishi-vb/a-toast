@@ -7,7 +7,7 @@
     <div *ngIf="logs.length < 1; else renderLogs">No toasts served so far.</div>
 
     <ng-template #renderLogs>
-      <div *ngFor="let log of logs">
+      <div *ngFor="let log of logs; trackBy: trackByIndex">
         A {{ log.type }} toast was served at {{ log.time }}
       </div>
     </ng-template>
