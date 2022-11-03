@@ -6,7 +6,17 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Event, ToastEventsWithIndex } from '../../models/toast.types';
+import { Observable } from 'rxjs';
+import {
+  Event,
+  ToastEvent,
+  ToastEventsWithIndex,
+} from '../../models/toast.types';
+
+/**
+ * Time in milli seconds
+ */
+const MAX_TIMEOUT_FOR_TOAST = 5000;
 
 @Component({
   selector: 'app-toast',
@@ -16,25 +26,20 @@ import { Event, ToastEventsWithIndex } from '../../models/toast.types';
 })
 export class ToastComponent implements OnInit {
   @Input()
-  toastData!: ToastEventsWithIndex;
+  toastEvent!: ToastEvent;
 
   @Output()
-  closeToast = new EventEmitter<number>();
-
-  /**
-   * Time in milli seconds
-   */
-  MAX_TIMEOUT_FOR_TOAST = 5000;
+  closeToast = new EventEmitter<unknown>();
 
   EVENT = Event;
 
   ngOnInit(): void {
     setTimeout(() => {
       this.close();
-    }, this.MAX_TIMEOUT_FOR_TOAST);
+    }, MAX_TIMEOUT_FOR_TOAST);
   }
 
   close() {
-    this.closeToast.emit(this.toastData.index);
+    this.closeToast.emit();
   }
 }

@@ -27,10 +27,10 @@ export class ToastService {
     bodyColor: '#dc3545',
   };
 
-  toastEvents$: Observable<ToastEvent>;
+  toastEvents$: Observable<ToastEvent[]>;
   toastLogs$: Observable<ToastEventLog[]>;
 
-  private _toastEvents = new Subject<ToastEvent>();
+  private _toastEvents = new BehaviorSubject<ToastEvent[]>([]);
   private _toastLogs$ = new BehaviorSubject<ToastEventLog[]>([]);
 
   constructor() {
@@ -70,8 +70,8 @@ export class ToastService {
   }
 
   private _show(message: ToastMessage, defaultConfig: DefaultToastConfig) {
-    const config = { ...message, ...defaultConfig };
-    this._toastEvents.next(config);
+    const toast = { ...message, ...defaultConfig };
+    this._toastEvents.next([...this._toastEvents.getValue(), toast]);
   }
 
   getTime() {
