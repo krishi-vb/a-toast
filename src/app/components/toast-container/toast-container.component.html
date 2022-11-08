@@ -1,6 +1,6 @@
-<div *ngFor="let toast of toastStack" class="container">
-  <app-toast
-    [toastData]="toast"
-    (closeToast)="disposeToast($event)"
-  ></app-toast>
+<div
+  *ngFor="let toast of toastEvents$ | async; trackBy: trackByIndex"
+  class="container"
+>
+  <app-toast [toastEvent]="toast"></app-toast>
 </div>
