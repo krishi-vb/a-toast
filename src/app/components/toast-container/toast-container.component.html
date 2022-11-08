@@ -1,15 +1,6 @@
 <div
-  *ngFor="
-    let toast of toastEvents$ | async;
-    trackBy: trackByIndex;
-    let index = index
-  "
+  *ngFor="let toast of toastEvents$ | async; trackBy: trackByIndex"
   class="container"
-  #toasts
 >
-  <app-toast
-    [toastEvent]="toast"
-    (closeToast)="disposeToast()"
-    #index
-  ></app-toast>
+  <app-toast [toastEvent]="toast"></app-toast>
 </div>

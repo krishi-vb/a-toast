@@ -41,7 +41,8 @@ export class ToastService {
   showSuccess(header: string, body: string) {
     this._show(
       { header, body, type: Event.SUCCESS },
-      { ...this.DEFAULT_CONFIG_SUCCESS }
+      { ...this.DEFAULT_CONFIG_SUCCESS },
+      Math.round(Math.random() * 10000)
     );
 
     const log: ToastEventLog = { type: Event.SUCCESS, time: this.getTime() };
@@ -52,7 +53,8 @@ export class ToastService {
   showWarning(header: string, body: string) {
     this._show(
       { header, body, type: Event.WARNING },
-      { ...this.DEFAULT_CONFIG_WARNING }
+      { ...this.DEFAULT_CONFIG_WARNING },
+      Math.round(Math.random() * 10000)
     );
 
     const log = { type: Event.WARNING, time: this.getTime() };
@@ -62,16 +64,30 @@ export class ToastService {
   showError(header: string, body: string) {
     this._show(
       { header, body, type: Event.ERROR },
-      { ...this.DEFAULT_CONFIG_ERROR }
+      { ...this.DEFAULT_CONFIG_ERROR },
+      Math.round(Math.random() * 10000)
     );
 
     const log = { type: Event.ERROR, time: this.getTime() };
     this._toastLogs$.next([...this._toastLogs$.getValue(), log]);
   }
 
-  private _show(message: ToastMessage, defaultConfig: DefaultToastConfig) {
-    const toast = { ...message, ...defaultConfig };
+  private _show(
+    message: ToastMessage,
+    defaultConfig: DefaultToastConfig,
+    toastId: number
+  ) {
+    const toast = { ...message, ...defaultConfig, toastId };
     this._toastEvents.next([...this._toastEvents.getValue(), toast]);
+  }
+
+  closeToast(toastId: number) {
+    console.log(this._toastEvents.getValue());
+    this._toastEvents.next([
+      ...this._toastEvents
+        .getValue()
+        .filter((event) => event.toastId !== toastId),
+    ]);
   }
 
   getTime() {

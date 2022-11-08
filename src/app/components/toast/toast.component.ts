@@ -1,17 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
 } from '@angular/core';
-import { Observable } from 'rxjs';
-import {
-  Event,
-  ToastEvent,
-  ToastEventsWithIndex,
-} from '../../models/toast.types';
+import { ToastService } from 'src/app/services/toast.service';
+import { Event, ToastEvent } from '../../models/toast.types';
 
 /**
  * Time in milli seconds
@@ -28,18 +22,17 @@ export class ToastComponent implements OnInit {
   @Input()
   toastEvent!: ToastEvent;
 
-  @Output()
-  closeToast = new EventEmitter<unknown>();
-
   EVENT = Event;
+
+  constructor(private toastService: ToastService) {}
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.close();
+      this.close(this.toastEvent.toastId);
     }, MAX_TIMEOUT_FOR_TOAST);
   }
 
-  close() {
-    this.closeToast.emit();
+  close(toastId: any) {
+    this.toastService.closeToast(toastId);
   }
 }

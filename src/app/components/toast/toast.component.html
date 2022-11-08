@@ -6,7 +6,7 @@
     <button
       type="button"
       class="btn-close close-button"
-      (click)="close()"
+      (click)="close(toastEvent.toastId)"
     ></button>
   </div>
   <div class="toast-body" [style.background]="toastEvent.bodyColor">

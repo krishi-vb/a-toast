@@ -10,6 +10,7 @@ export interface ToastEvent {
   header?: string;
   headerColor?: string;
   bodyColor?: string;
+  toastId?: number;
 }
 
 export interface ToastMessage {
@@ -26,9 +27,4 @@ export interface DefaultToastConfig {
 export interface ToastEventLog {
   type?: Event;
   time?: string;
-}
-
-export interface ToastEventsWithIndex {
-  event: ToastEvent;
-  index: number;
 }
